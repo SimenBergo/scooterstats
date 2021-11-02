@@ -1,9 +1,7 @@
 const Stats = require('./model');
 
 getStats = async (req, res) => {
-    console.log('test');
     await Stats.find({}, (err, stats) => {
-        console.log(stats);
         if (err) {
             return res.status(400).json({ success: false, error: err });
         }
