@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { Button } from '@material-ui/core';
-import api from '../../api/api';
-import { AuthContext } from '../../utils/Auth';
-import UsersUpdate from './UsersUpdate';
-import UsersInsert from './UsersInsert';
+import api from '../api/api';
+
 
 class Stats extends Component {
-    static contextType = AuthContext;
 
     constructor(props) {
         super(props)
@@ -23,7 +20,7 @@ class Stats extends Component {
     componentDidMount = async () => {
         this.setState({ isLoading: true })
         this.dispUsers();
-        await api.getAllUsers(this.context.generateHeaders()).then(users => { 
+        await api.getStats(this.context.generateHeaders()).then(users => { 
             this.setState({
                 users: users.data.data,
                 isLoading: false,
@@ -77,14 +74,6 @@ class Stats extends Component {
                         {this.dispUsers(this.state.users)}
                         </div>
                     </section>
-                }
-                {!this.state.update &&
-                    <div id="addUser">
-                        <UsersInsert />
-                    </div>
-                }
-                {this.state.update &&
-                    <UsersUpdate id = { this.state.updateId }/>
                 }
             </>
             )
