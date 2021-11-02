@@ -18,7 +18,7 @@ class Stats extends Component {
     componentDidMount = async () => {
         this.setState({ isLoading: true })
         this.dispUsers();
-        await api.getStats(this.context.generateHeaders()).then(users => { 
+        await api.getStats().then(users => { 
             this.setState({
                 users: users.data.data,
                 isLoading: false,
