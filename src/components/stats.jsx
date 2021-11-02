@@ -55,7 +55,7 @@ class Stats extends Component {
         }
         return allStats.map((stats, index) => {
             return <div id="userCard" key={index}>
-                <h5>Ride</h5>
+                <h5>Ride {index+1}</h5>
                 <p>start: </p>
                 <p>{this.displayTime(stats.time_start)}</p>
                 <p>fall: </p>
