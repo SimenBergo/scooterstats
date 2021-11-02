@@ -22,19 +22,49 @@ class Stats extends Component {
         })
     }
 
-    dispUsers = (stats) => {
+    displayTime = (timestamp) => {
+        const date = new Date(timestamp);
+        let year = date.getFullYear();
+        let month = date.getMonth()+1;
+        let dt = date.getDate();
 
-        console.log(stats);
-        
-           return <div id="userCard">
+        let hr = date.getHours();
+        let min = date.getMinutes();
+        let sec = date.getSeconds();
+
+        console.log(hr, min, sec);
+    
+        if (dt < 10) {
+        dt = '0' + dt;
+        }
+        if (month < 10) {
+        month = '0' + month;
+        }
+    
+        return hr + ':' + min + ':' + sec + ' - ' + dt + '/' + month + '/' + year;
+    
+    }
+
+    dispUsers = () => {
+
+        const stats = this.state.stats;
+        const allStats = [];
+
+        for (let i = 0; i < stats.length; i++){
+            allStats.push(stats[i]);
+        }
+        return allStats.map((stats, index) => {
+            return <div id="userCard" key={index}>
                 <h5>Ride</h5>
                 <p>start: </p>
-                <p>{stats}</p>
-                <p>end: </p>
-                <p>{stats}</p>
+                <p>{this.displayTime(stats.time_start)}</p>
                 <p>fall: </p>
-                <p>{stats}</p>
+                <p>{this.displayTime(stats.fall_time)}</p>
+                <p>end: </p>
+                <p>{this.displayTime(stats.time_end)}</p>
             </div>
+        })
+           
     }
 
     render() {
