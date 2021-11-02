@@ -32,3 +32,13 @@ footer {
 p {
   margin: 0;
 }
+
+#statsCard {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  padding: 5px;
+  border: solid 2px black;
+}
