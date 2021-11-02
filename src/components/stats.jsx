@@ -50,18 +50,22 @@ class Stats extends Component {
         const stats = this.state.stats;
         const allStats = [];
 
+        
+
         for (let i = 0; i < stats.length; i++){
             allStats.push(stats[i]);
         }
         return allStats.map((stats, index) => {
-            return <div id="userCard" key={index}>
+            return <div id="statsCard" key={index}>
                 <h5>Ride {index+1}</h5>
-                <p>start: </p>
+                <p>Start: </p>
                 <p>{this.displayTime(stats.time_start)}</p>
-                <p>fall: </p>
+                <p>Fall: </p>
                 <p>{this.displayTime(stats.fall_time)}</p>
-                <p>end: </p>
+                <p>End: </p>
                 <p>{this.displayTime(stats.time_end)}</p>
+                <p>Duration:</p>
+                <p>{this.displayTime(stats.time_end - stats.time_start)}</p>
             </div>
         })
            
