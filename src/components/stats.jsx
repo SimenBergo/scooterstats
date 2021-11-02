@@ -30,21 +30,6 @@ class Stats extends Component {
             })
         })
     }
-    
-    deleteUser(id, fullname) {
-        if(window.confirm(`Do you want to delete the user ${fullname} permanently?`)){
-            api.deleteUserById(this.context.generateHeaders(), id);
-            window.location.reload();
-        }
-    } 
-
-    updateUser(id) {
-        this.setState({
-            update: true,
-            updateId: id
-        })
-    }
-
 
     dispUsers = () => {
         const people = this.state.users;
