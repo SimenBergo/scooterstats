@@ -41,7 +41,7 @@ class Stats extends Component {
                     users.push(people[i]);
                 }
         }
-        //rendering only gardeners and anonymous users
+        
         return users.map((users, index) => {
            return <div id="userCard" key={index}>
                 <h5>{users.name} {users.surname}</h5>
