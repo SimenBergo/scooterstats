@@ -22,6 +22,18 @@ class Stats extends Component {
         })
     }
 
+    duration = (start, end) => {
+        const date = new Date(start);
+        const date2 = new Date(end);
+
+        let mili = date2 - date;
+        let seconds = mili/1000;
+
+        let min = new Date(seconds * 1000).toISOString().substr(14, 5);
+
+        return min
+    }
+
     displayTime = (timestamp) => {
         const date = new Date(timestamp);
         let year = date.getFullYear();
@@ -63,7 +75,7 @@ class Stats extends Component {
                 <p>End: </p>
                 <p>{this.displayTime(stats.time_end)}</p>
                 <p>Duration:</p>
-                <p>{this.displayTime(stats.time_end - stats.time_start)}</p>
+                <p>{this.duration(stats.time_start, stats.time_end)}</p>
             </div>
         })
            
