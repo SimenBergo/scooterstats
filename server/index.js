@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 
 //connecting to database using mongoose connect
 mongoose
-    .connect('mongodb+srv://overthere:elskerrambo@cluster0.eya5t.mongodb.net/scooter?retryWrites=true&w=majority', 
+    .connect('mongodb+srv://overthere:elskerrambo@cluster0.eya5t.mongodb.net/database?retryWrites=true&w=majority', 
     { useNewUrlParser: true, useUnifiedTopology: true })
     .catch(e => {
         console.error('Connection error', e.message);
@@ -33,6 +33,7 @@ app.use((err, req, res, next) => {
     res.status(err.status || 500);
     res.json({ error: err });
 });
+
 app.use(express.static(path.join(__dirname, "client", "build")));
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));

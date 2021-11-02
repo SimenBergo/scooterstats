@@ -1,6 +1,9 @@
+const User = require('./model');
 
 getStats = async (req, res) => {
-    await find({}, (err, users) => {
+    console.log('test');
+    await User.find({}, (err, users) => {
+        console.log(users);
         if (err) {
             return res.status(400).json({ success: false, error: err });
         }
