@@ -1,6 +1,6 @@
 
 getStats = async (req, res) => {
-    await User.find({}, (err, users) => {
+    await find({}, (err, users) => {
         if (err) {
             return res.status(400).json({ success: false, error: err });
         }
