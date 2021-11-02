@@ -31,8 +31,6 @@ class Stats extends Component {
         let hr = date.getHours();
         let min = date.getMinutes();
         let sec = date.getSeconds();
-
-        console.log(hr, min, sec);
     
         if (dt < 10) {
         dt = '0' + dt;
