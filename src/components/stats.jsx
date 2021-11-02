@@ -6,7 +6,7 @@ class Stats extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            users: [],
+            stats: [],
             isLoading: false
         }
     }
@@ -14,26 +14,26 @@ class Stats extends Component {
     componentDidMount = async () => {
         this.setState({ isLoading: true })
         this.dispUsers();
-        await api.getStats().then(users => { 
+        await api.getStats().then(stats => { 
             this.setState({
-                users: users.data.data,
+                stats: stats.data.data,
                 isLoading: false,
             })
         })
     }
 
-    dispUsers = (users) => {
+    dispUsers = (stats) => {
 
-        console.log(users);
+        console.log(stats);
         
            return <div id="userCard">
                 <h5>Ride</h5>
                 <p>start: </p>
-                <p>{users.time_start}</p>
+                <p>{stats}</p>
                 <p>end: </p>
-                <p>{users.time_end}</p>
+                <p>{stats}</p>
                 <p>fall: </p>
-                <p>{users.fall_time}</p>
+                <p>{stats}</p>
             </div>
     }
 
@@ -43,7 +43,7 @@ class Stats extends Component {
                 <section>
                     <h2>All trips</h2>
                     <div id="dispUsers">
-                    {this.dispUsers(this.state.users)}
+                    {this.dispUsers(this.state.stats)}
                     </div>
                 </section>
             </>

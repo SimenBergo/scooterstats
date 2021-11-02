@@ -2,7 +2,20 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 //user schema
-const User = new Schema({}, { strict: false });
+const Stats = new Schema({
+    fall_time: {
+        type: Date,
+        required: true,
+    },
+    time_start: {
+        type: Date,
+        required: true,
+    },
+    time_end: {
+        type: Date,
+        required: true,
+    }
+});
 
-const UserModel = mongoose.model('stats', User);
-module.exports = UserModel;
+const StatsModel = mongoose.model('stats', Stats);
+module.exports = StatsModel;
