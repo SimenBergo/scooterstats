@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from '@material-ui/core';
 import api from '../api/api';
-
 
 class Stats extends Component {
 
@@ -46,20 +44,6 @@ class Stats extends Component {
                 <p>{users.email}</p>
                 <p>Role: </p>
                 <p>{users.role}</p>
-                
-                <Button
-                    id="update"
-                    aria-label="update"
-                    color="primary"
-                    onClick={() => this.updateUser(users._id)}
-                >Update</Button>
-
-                <Button
-                    id="delete"
-                    aria-label="delete"
-                    color="secondary"
-                    onClick={() => this.deleteUser(users._id, users.name + ' ' + users.surname)}
-                    >Delete user</Button>
             </div>
         })
     }

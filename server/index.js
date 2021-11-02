@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 //connecting to database using mongoose connect
 mongoose
     .connect('mongodb+srv://overthere:elskerrambo@cluster0.eya5t.mongodb.net/scooter?retryWrites=true&w=majority', 
-    { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
+    { useNewUrlParser: true, useUnifiedTopology: true })
     .catch(e => {
         console.error('Connection error', e.message);
     });
