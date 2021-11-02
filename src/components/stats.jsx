@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
-import { Button } from '@material-ui/core';
 import api from '../../api/api';
-import { AuthContext } from '../../utils/Auth';
-import UsersUpdate from './UsersUpdate';
-import UsersInsert from './UsersInsert';
 
 class Stats extends Component {
-    static contextType = AuthContext;
-
     constructor(props) {
         super(props)
         this.state = {

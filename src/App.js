@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import Stats from './components/stats';
 import './App.css';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
         <h2>Scooter stats</h2>
       </header>
       <main>
-        <p>Main</p>
+        < Stats />
       </main>
       <footer>
       <p>footer</p>
