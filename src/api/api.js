@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 const all = axios.create({
-    baseURL:  'https://scooterstats.herokuapp.com',
+    baseURL:  'http://localhost:5000/all',
 });
 
-export const getStats = () => all.get(`/getstats`);
+export const getStats = () => all.get(`/getStats`);
 
 const api = { getStats };
 

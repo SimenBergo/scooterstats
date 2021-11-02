@@ -1,23 +1,19 @@
 import React, { Component } from 'react';
-import api from '../../api/api';
+import api from '../api/api';
 
 class Stats extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            role: '',
-            updateId: '',
             users: [],
-            columns: [],
-            isLoading: false,
-            update: false
+            isLoading: false
         }
     }
     
     componentDidMount = async () => {
         this.setState({ isLoading: true })
         this.dispUsers();
-        await api.getAllUsers(this.context.generateHeaders()).then(users => { 
+        await api.getStats.then(users => { 
             this.setState({
                 users: users.data.data,
                 isLoading: false,
@@ -25,61 +21,30 @@ class Stats extends Component {
         })
     }
 
-    dispUsers = () => {
-        const people = this.state.users;
-        const users = [];
+    dispUsers = (users) => {
 
-        //sorting out managers
-        for (let i = 0; i < people.length; i++){
-                if(people[i]['role'] === "gardener" || people[i]['role'] === "anonymous"){
-                    users.push(people[i]);
-                }
-        }
+        console.log(users);
         
-        return users.map((users, index) => {
-           return <div id="userCard" key={index}>
-                <h5>{users.name} {users.surname}</h5>
-                <p>Email: </p>
-                <p>{users.email}</p>
-                <p>Role: </p>
-                <p>{users.role}</p>
-                
-                <Button
-                    id="update"
-                    aria-label="update"
-                    color="primary"
-                    onClick={() => this.updateUser(users._id)}
-                >Update</Button>
-
-                <Button
-                    id="delete"
-                    aria-label="delete"
-                    color="secondary"
-                    onClick={() => this.deleteUser(users._id, users.name + ' ' + users.surname)}
-                    >Delete user</Button>
+           return <div id="userCard">
+                <h5>Ride</h5>
+                <p>start: </p>
+                <p>{users.time_start}</p>
+                <p>end: </p>
+                <p>{users.time_end}</p>
+                <p>fall: </p>
+                <p>{users.fall_time}</p>
             </div>
-        })
     }
 
     render() {
         return (
             <>
-                {!this.state.update &&
-                    <section>
-                        <h2>All gardeners & anonymous users</h2>
-                        <div id="dispUsers">
-                        {this.dispUsers(this.state.users)}
-                        </div>
-                    </section>
-                }
-                {!this.state.update &&
-                    <div id="addUser">
-                        <UsersInsert />
+                <section>
+                    <h2>All trips</h2>
+                    <div id="dispUsers">
+                    {this.dispUsers(this.state.users)}
                     </div>
-                }
-                {this.state.update &&
-                    <UsersUpdate id = { this.state.updateId }/>
-                }
+                </section>
             </>
             )
         }
