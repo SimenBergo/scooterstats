@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import api from '../api/api';
 
 class Stats extends Component {
+
     constructor(props) {
         super(props)
         this.state = {
