@@ -8,11 +8,14 @@ header {
   width: auto;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  font-family: 'Pacifico', cursive;
+  font-family: 'Righteous', cursive;
 }
 
 header img {
   max-width: 100px;
+  padding: 5px;
 }
 
 h2 {
@@ -22,11 +25,45 @@ h2 {
 main {
   background-color: lightgrey;
   display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  min-height: 1000px;
+}
+
+#dispUsers {
+  display: flex;
+  flex-flow: row wrap;
   justify-content: center;
+  align-items: center
+  ;
 }
 
 footer {
-  background-color: grey;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  background-color: #171717;
+  min-height: 250px;
+  margin: auto 0 0;
+  box-shadow: 0 50vh 0 50vh #171717;
+}
+
+footer p {
+  color: whitesmoke;
+}
+
+a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #f0ead2;
+  margin: 3%;
+}
+
+footer img {
+  max-width: 50%;
+  margin: 1%;
 }
 
 p {
@@ -38,7 +75,8 @@ p {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  margin: 5px;
+  background-color: white;
+  margin: 20px;
   padding: 5px;
   border: solid 2px black;
 }

@@ -84,8 +84,9 @@ class Stats extends Component {
     render() {
         return (
             <>
+            <h2>All trips</h2>
                 <section>
-                    <h2>All trips</h2>
+                    
                     <div id="dispUsers">
                     {this.dispUsers(this.state.stats)}
                     </div>

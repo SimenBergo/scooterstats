@@ -1,4 +1,5 @@
 import Stats from './components/stats';
+import Footer from './components/footer';
 import ScooterLogo from "../src/scooter512.png";
 import './App.css';
 
@@ -13,7 +14,7 @@ function App() {
         < Stats />
       </main>
       <footer>
-      <p>footer</p>
+      <Footer />
       </footer>
     </div>
   );
