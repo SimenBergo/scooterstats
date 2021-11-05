@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const all = axios.create({
-    baseURL:  'http://localhost:5000/all',
+    baseURL:  'https://scooterstats.herokuapp.com/all',
 });
 
 export const getStats = () => all.get(`/getStats`);
