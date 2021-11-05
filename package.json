@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "cd server && node index.js",
-    "heroku-postbuild": "npm install",
+    "heroku-postbuild": "cd server && npm install",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
