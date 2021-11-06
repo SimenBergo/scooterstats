@@ -60,11 +60,11 @@ a {
   justify-content: center;
   text-decoration: none;
   color: #f0ead2;
-  margin: 3%;
+  margin: 1%;
 }
 
 footer img {
-  max-width: 50%;
+  max-width: 30%;
   margin: 1%;
 }
 
@@ -81,4 +81,9 @@ p {
   margin: 20px;
   padding: 5px;
   border: solid 2px black;
+  border-radius: 5%;
+}
+
+#statsCard p {
+  margin: 2px;
 }
