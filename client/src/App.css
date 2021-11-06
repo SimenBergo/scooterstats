@@ -1,6 +1,8 @@
 body {
   display: flex;
   flex-flow: column nowrap;
+  font-family: 'Dongle', sans-serif;
+  font-family: 'Righteous', cursive;
 }
 
 header {
