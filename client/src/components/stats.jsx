@@ -60,8 +60,6 @@ class Stats extends Component {
         const stats = this.state.stats;
         const allStats = [];
 
-        
-
         for (let i = 0; i < stats.length; i++){
             allStats.push(stats[i]);
         }
@@ -77,8 +75,7 @@ class Stats extends Component {
                 <p>Duration:</p>
                 <p>{this.duration(stats.time_start, stats.time_end)}</p>
             </div>
-        })
-           
+        }) 
     }
 
     render() {
@@ -86,7 +83,6 @@ class Stats extends Component {
             <>
             <h2>All trips</h2>
                 <section>
-                    
                     <div id="dispUsers">
                     {this.dispUsers(this.state.stats)}
                     </div>
