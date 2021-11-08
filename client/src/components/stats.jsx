@@ -34,7 +34,7 @@ class Stats extends Component {
         return min
     }
 
-    displayTime = (timestamp) => {
+    displayTime = (timestamp, type) => {
         const date = new Date(timestamp);
         let year = date.getFullYear();
         let month = date.getMonth()+1;
@@ -50,8 +50,14 @@ class Stats extends Component {
         if (month < 10) {
         month = '0' + month;
         }
+
+        if (type === "time"){
+            return hr + ':' + min + ':' + sec;
+        }else{
+            return dt + '/' + month + '/' + year;
+        }
     
-        return hr + ':' + min + ':' + sec + ' - ' + dt + '/' + month + '/' + year;
+         
     
     }
 
@@ -66,12 +72,14 @@ class Stats extends Component {
         return allStats.map((stats, index) => {
             return <div id="statsCard" key={index}>
                 <h3>Ride {index+1}</h3>
+                <p>Date: </p>
+                <p>{this.displayTime(stats.time_start, "date")}</p>
                 <p>Start: </p>
-                <p>{this.displayTime(stats.time_start)}</p>
+                <p>{this.displayTime(stats.time_start, "time")}</p>
                 <p>Fall: </p>
-                <p>{this.displayTime(stats.fall_time)}</p>
+                <p>{this.displayTime(stats.fall_time, "time")}</p>
                 <p>End: </p>
-                <p>{this.displayTime(stats.time_end)}</p>
+                <p>{this.displayTime(stats.time_end, "time")}</p>
                 <p>Duration:</p>
                 <p>{this.duration(stats.time_start, stats.time_end)}</p>
             </div>
