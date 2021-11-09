@@ -3,6 +3,7 @@ body {
   flex-flow: column nowrap;
   font-family: 'Dongle', sans-serif;
   font-family: 'Righteous', cursive;
+  background-color: #171717;
 }
 
 header {
@@ -36,8 +37,8 @@ main {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  align-items: center
-  ;
+  align-items: center;
+  width: 100%;
 }
 
 footer {
@@ -72,6 +73,10 @@ p {
   margin: 0;
 }
 
+section {
+  width: 95%;
+}
+
 #statsCard {
   display: flex;
   flex-flow: column nowrap;
@@ -82,6 +87,7 @@ p {
   padding: 5px;
   border: solid 2px black;
   border-radius: 5%;
+  width: 200px;
 }
 
 #statsCard p {
@@ -99,5 +105,8 @@ p {
   }
   footer img {
     max-width: 60%;
+  }
+  #statsCard {
+    width: 60%;
   }
 }
