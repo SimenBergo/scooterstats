@@ -3,9 +3,8 @@ const Schema = mongoose.Schema;
 
 //user schema
 const Stats = new Schema({
-    fall_time: {
-        type: Date,
-        required: true,
+    falls: {
+        type: Array,
     },
     time_start: {
         type: Date,
