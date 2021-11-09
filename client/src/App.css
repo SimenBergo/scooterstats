@@ -36,8 +36,8 @@ main {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  align-items: center
-  ;
+  align-items: center;
+  width: 100%;
 }
 
 footer {
@@ -72,6 +72,10 @@ p {
   margin: 0;
 }
 
+section {
+  width: 95%;
+}
+
 #statsCard {
   display: flex;
   flex-flow: column nowrap;
@@ -99,5 +103,8 @@ p {
   }
   footer img {
     max-width: 60%;
+  }
+  #statsCard {
+    width: 60%;
   }
 }
