@@ -3,6 +3,7 @@ body {
   flex-flow: column nowrap;
   font-family: 'Dongle', sans-serif;
   font-family: 'Righteous', cursive;
+  background-color: #171717;
 }
 
 header {
