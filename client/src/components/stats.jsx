@@ -36,19 +36,33 @@ class Stats extends Component {
 
     displayTime = (timestamp, type) => {
         const date = new Date(timestamp);
+        const sdate = date.toLocaleString('no-NO', {timeZone: "GMT"}); 
         let year = date.getFullYear();
         let month = date.getMonth()+1;
         let dt = date.getDate();
 
-        let hr = date.getHours();
-        let min = date.getMinutes();
-        let sec = date.getSeconds();
+        //let hr = date.getHours();
+        //let min = date.getMinutes();
+        //let sec = date.getSeconds();
+
+        let hr = sdate.substr(11, 2);
+        let min = sdate.substr(14, 2);
+        let sec = sdate.substr(17, 2);
     
         if (dt < 10) {
-        dt = '0' + dt;
+            dt = '0' + dt;
         }
         if (month < 10) {
-        month = '0' + month;
+            month = '0' + month;
+        }
+        if (hr < 10) {
+            hr = '0' + hr;
+        }
+        if (min < 10) {
+            min = '0' + min;
+        }
+        if (sec < 10) {
+            sec = '0' + sec;
         }
 
         if (type === "time"){
