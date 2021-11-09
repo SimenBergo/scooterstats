@@ -67,11 +67,11 @@ class Stats extends Component {
             allFalls.push(falls[i]);
         }
         return allFalls.map((fall, index) => {
-            return <>
+            return <div id="fall">
                 <p>Fall {index + 1}: </p>
                 <p>Time: </p>
                 <p>{this.displayTime(fall, "time")}</p>
-            </>
+            </div>
         })
     }
 
@@ -87,16 +87,19 @@ class Stats extends Component {
         return allStats.map((stats, index) => {
             return <div id="statsCard" key={index}>
                 <h3>Ride {index+1}</h3>
-                <p>Date: </p>
+                <p><b>Date: </b></p>
                 <p>{this.displayTime(stats.time_start, "date")}</p>
-                <p>Start: </p>
+                <p><b>Start: </b></p>
                 <p>{this.displayTime(stats.time_start, "time")}</p>
-                <p>Fall: </p>
-                {this.array(stats.falls)}
-                <p>End: </p>
+                <p><b>End: </b></p>
                 <p>{this.displayTime(stats.time_end, "time")}</p>
-                <p>Duration:</p>
+                <p><b>Duration: </b></p>
                 <p>{this.duration(stats.time_start, stats.time_end)}</p>
+                <p><b>Falls: </b></p>
+                
+                <div id="allFalls">
+                {this.array(stats.falls)}
+                </div>
             </div>
         }) 
     }

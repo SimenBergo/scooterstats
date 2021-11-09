@@ -87,11 +87,23 @@ section {
   padding: 5px;
   border: solid 2px black;
   border-radius: 5%;
-  width: 200px;
+  width: 250px;
 }
 
 #statsCard p {
-  margin: 2px;
+  margin: 5px;
+}
+
+#allFalls {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+#fall {
+  border: solid 2px black;
+  margin: 5px;
+  padding: 2px;
 }
 
 @media only screen and (max-width: 600px) {
