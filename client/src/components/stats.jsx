@@ -109,11 +109,13 @@ class Stats extends Component {
                 <p>{this.displayTime(stats.time_end, "time")}</p>
                 <p><b>Duration: </b></p>
                 <p>{this.duration(stats.time_start, stats.time_end)}</p>
-                <p><b>Falls: </b></p>
+                {stats.falls.length > 0 && 
+                <><p><b>Falls: </b></p>
                 
                 <div id="allFalls">
                 {this.array(stats.falls)}
-                </div>
+                </div></>
+                }
             </div>
         }) 
     }
