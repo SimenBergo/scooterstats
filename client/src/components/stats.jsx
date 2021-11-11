@@ -34,25 +34,59 @@ class Stats extends Component {
         return min
     }
 
-    displayTime = (timestamp) => {
+    displayTime = (timestamp, type) => {
         const date = new Date(timestamp);
+        const sdate = date.toLocaleString('no-NO', {timeZone: "GMT"}); 
         let year = date.getFullYear();
         let month = date.getMonth()+1;
         let dt = date.getDate();
 
-        let hr = date.getHours();
-        let min = date.getMinutes();
-        let sec = date.getSeconds();
+        //let hr = date.getHours();
+        //let min = date.getMinutes();
+        //let sec = date.getSeconds();
+
+        let hr = sdate.substr(11, 2);
+        let min = sdate.substr(14, 2);
+        let sec = sdate.substr(17, 2);
     
         if (dt < 10) {
-        dt = '0' + dt;
+            dt = '0' + dt;
         }
         if (month < 10) {
-        month = '0' + month;
+            month = '0' + month;
+        }
+        if (hr < 10) {
+            hr = '0' + hr;
+        }
+        if (min < 10) {
+            min = '0' + min;
+        }
+        if (sec < 10) {
+            sec = '0' + sec;
+        }
+
+        if (type === "time"){
+            return hr + ':' + min + ':' + sec;
+        }else{
+            return dt + '/' + month + '/' + year;
         }
     
-        return hr + ':' + min + ':' + sec + ' - ' + dt + '/' + month + '/' + year;
+         
     
+    }
+
+    array = (falls) => {
+        let allFalls = [];
+        for (let i = 0; i < falls.length; i++){
+            allFalls.push(falls[i]);
+        }
+        return allFalls.map((fall, index) => {
+            return <div id="fall">
+                <p>Fall {index + 1}: </p>
+                <p>Time: </p>
+                <p>{this.displayTime(fall, "time")}</p>
+            </div>
+        })
     }
 
     dispUsers = () => {
@@ -60,25 +94,30 @@ class Stats extends Component {
         const stats = this.state.stats;
         const allStats = [];
 
-        
-
         for (let i = 0; i < stats.length; i++){
             allStats.push(stats[i]);
         }
+        
         return allStats.map((stats, index) => {
             return <div id="statsCard" key={index}>
-                <h5>Ride {index+1}</h5>
-                <p>Start: </p>
-                <p>{this.displayTime(stats.time_start)}</p>
-                <p>Fall: </p>
-                <p>{this.displayTime(stats.fall_time)}</p>
-                <p>End: </p>
-                <p>{this.displayTime(stats.time_end)}</p>
-                <p>Duration:</p>
+                <h3>Ride {index+1}</h3>
+                <p><b>Date: </b></p>
+                <p>{this.displayTime(stats.time_start, "date")}</p>
+                <p><b>Start: </b></p>
+                <p>{this.displayTime(stats.time_start, "time")}</p>
+                <p><b>End: </b></p>
+                <p>{this.displayTime(stats.time_end, "time")}</p>
+                <p><b>Duration: </b></p>
                 <p>{this.duration(stats.time_start, stats.time_end)}</p>
+                {stats.falls.length > 0 && 
+                <><p><b>Falls: </b></p>
+                
+                <div id="allFalls">
+                {this.array(stats.falls)}
+                </div></>
+                }
             </div>
-        })
-           
+        }) 
     }
 
     render() {
@@ -86,7 +125,6 @@ class Stats extends Component {
             <>
             <h2>All trips</h2>
                 <section>
-                    
                     <div id="dispUsers">
                     {this.dispUsers(this.state.stats)}
                     </div>

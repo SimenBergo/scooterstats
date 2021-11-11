@@ -1,6 +1,9 @@
 body {
   display: flex;
   flex-flow: column nowrap;
+  font-family: 'Dongle', sans-serif;
+  font-family: 'Righteous', cursive;
+  background-color: #171717;
 }
 
 header {
@@ -34,8 +37,8 @@ main {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  align-items: center
-  ;
+  align-items: center;
+  width: 100%;
 }
 
 footer {
@@ -58,16 +61,20 @@ a {
   justify-content: center;
   text-decoration: none;
   color: #f0ead2;
-  margin: 3%;
+  margin: 1%;
 }
 
 footer img {
-  max-width: 50%;
+  max-width: 30%;
   margin: 1%;
 }
 
 p {
   margin: 0;
+}
+
+section {
+  width: 95%;
 }
 
 #statsCard {
@@ -79,4 +86,39 @@ p {
   margin: 20px;
   padding: 5px;
   border: solid 2px black;
+  border-radius: 5%;
+  width: 250px;
+}
+
+#statsCard p {
+  margin: 5px;
+}
+
+#allFalls {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+#fall {
+  border: solid 2px black;
+  margin: 5px;
+  padding: 2px;
+}
+
+@media only screen and (max-width: 600px) {
+
+  main {
+    min-height: 1100px;
+  }
+
+  footer {
+    min-height: 50px;
+  }
+  footer img {
+    max-width: 60%;
+  }
+  #statsCard {
+    width: 60%;
+  }
 }
