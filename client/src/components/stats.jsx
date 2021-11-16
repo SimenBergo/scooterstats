@@ -101,14 +101,14 @@ class Stats extends Component {
         return allStats.map((stats, index) => {
             return <div id="statsCard" key={index}>
                 <h3>Ride {index+1}</h3>
-                <p><b>Date: </b></p>
-                <p>{this.displayTime(stats.time_start, "date")}</p>
-                <p><b>Start: </b></p>
-                <p>{this.displayTime(stats.time_start, "time")}</p>
-                <p><b>End: </b></p>
-                <p>{this.displayTime(stats.time_end, "time")}</p>
-                <p><b>Duration: </b></p>
-                <p>{this.duration(stats.time_start, stats.time_end)}</p>
+                <p><b>Date: </b>{this.displayTime(stats.time_start, "date")}</p>
+                
+                <p><b>Start: </b>{this.displayTime(stats.time_start, "time")}</p>
+                
+                <p><b>End: </b>{this.displayTime(stats.time_end, "time")}</p>
+                
+                <p><b>Duration: </b>{this.duration(stats.time_start, stats.time_end)}</p>
+                
                 {stats.falls.length < 1 &&
                 <p>No falls</p>
                 }
