@@ -82,8 +82,7 @@ class Stats extends Component {
         }
         return allFalls.map((fall, index) => {
             return <div id="fall">
-                <p>Fall {index + 1}: </p>
-                <p>Time: </p>
+                <p><b>Fall {index + 1} Time: </b></p>
                 <p>{this.displayTime(fall, "time")}</p>
             </div>
         })
