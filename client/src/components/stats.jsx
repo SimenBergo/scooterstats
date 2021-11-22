@@ -88,8 +88,11 @@ class Stats extends Component {
         })
     }
 
+    
+
     dispUsers = () => {
 
+        console.log(this.state.stats)
         const stats = this.state.stats;
         const allStats = [];
 
@@ -131,6 +134,11 @@ class Stats extends Component {
                     {this.dispUsers(this.state.stats)}
                     </div>
                 </section>
+            <h2>Stats</h2>
+            <section id="stats">
+                <p><b>Total number of trips: </b>{this.state.stats.length}</p>
+                
+            </section>
             </>
             )
         }

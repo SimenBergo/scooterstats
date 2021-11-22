@@ -95,6 +95,14 @@ section {
   min-height: 300px;
 }
 
+#stats {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 5%;
+}
+
 #statsCard p {
   margin: 5px;
 }
