@@ -89,16 +89,16 @@ class Stats extends Component {
     }
 
     countFalls = () => {
-        let allFalls = 0;
+        let allFalls = [];
 
         const stats = this.state.stats;
 
         for (let i = 0; i < stats; i++){
             if(stats.falls.length > 0){
-                allFalls++;
+                allFalls.push(stats[i]);
             }
         }
-        return allFalls;
+        return allFalls.length;
     }
 
 
