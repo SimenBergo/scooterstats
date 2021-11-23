@@ -149,7 +149,7 @@ class Stats extends Component {
             <h2>Stats</h2>
             <section id="stats">
                 <p><b>Total number of trips: </b>{this.state.stats.length}</p>
-                <p><b>Total number of trips with falls: </b>{this.countFalls()}</p>
+                <p><b>Total number of trips with falls: </b>{this.countFalls(this.state.stats)}</p>
             </section>
             </>
             )
