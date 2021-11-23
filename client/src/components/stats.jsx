@@ -88,7 +88,19 @@ class Stats extends Component {
         })
     }
 
-    
+    countFalls = () => {
+        let allFalls = 0;
+
+        const stats = this.state.stats;
+
+        for (let i = 0; i < stats; i++){
+            if(stats.falls.length > 0){
+                allFalls++;
+            }
+        }
+        return allFalls;
+    }
+
 
     dispUsers = () => {
 
@@ -104,13 +116,13 @@ class Stats extends Component {
             return <div id="statsCard" key={index}>
                 <h3>Ride {index+1}</h3>
                 <p><b>Date: </b>{this.displayTime(stats.time_start, "date")}</p>
-                
+
                 <p><b>Start: </b>{this.displayTime(stats.time_start, "time")}</p>
-                
+
                 <p><b>End: </b>{this.displayTime(stats.time_end, "time")}</p>
-                
+
                 <p><b>Duration: </b>{this.duration(stats.time_start, stats.time_end)}</p>
-                
+
                 {stats.falls.length < 1 &&
                 <p>No falls</p>
                 }
@@ -137,7 +149,7 @@ class Stats extends Component {
             <h2>Stats</h2>
             <section id="stats">
                 <p><b>Total number of trips: </b>{this.state.stats.length}</p>
-                
+                <p><b>Total number of trips with falls: </b>{this.countFalls()}</p>
             </section>
             </>
             )
