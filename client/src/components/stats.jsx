@@ -92,9 +92,8 @@ class Stats extends Component {
         let allFalls = [];
 
         const stats = this.state.stats;
-
-        for (let i = 0; i < stats; i++){
-            if(stats.falls.length > 0){
+        for (let i = 0; i < stats.length; i++){
+            if(stats[i].falls.length > 0){
                 allFalls.push(stats[i]);
             }
         }
@@ -104,7 +103,6 @@ class Stats extends Component {
 
     dispUsers = () => {
 
-        console.log(this.state.stats)
         const stats = this.state.stats;
         const allStats = [];
 
