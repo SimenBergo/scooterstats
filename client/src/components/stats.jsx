@@ -10,11 +10,11 @@ class Stats extends Component {
             isLoading: false
         }
     }
-    
+
     componentDidMount = async () => {
         this.setState({ isLoading: true })
         this.dispUsers();
-        await api.getStats().then(stats => { 
+        await api.getStats().then(stats => {
             this.setState({
                 stats: stats.data.data,
                 isLoading: false,
@@ -36,7 +36,7 @@ class Stats extends Component {
 
     displayTime = (timestamp, type) => {
         const date = new Date(timestamp);
-        const sdate = date.toLocaleString('no-NO', {timeZone: "GMT"}); 
+        const sdate = date.toLocaleString('no-NO', {timeZone: "GMT"});
         let year = date.getFullYear();
         let month = date.getMonth()+1;
         let dt = date.getDate();
@@ -45,10 +45,10 @@ class Stats extends Component {
         //let min = date.getMinutes();
         //let sec = date.getSeconds();
 
-        let hrplace = 12;
-        let minplace = 15;
-        let secplace = 18; 
-    
+        let hr = sdate.substr(11, 2);
+        let min = sdate.substr(14, 2);
+        let sec = sdate.substr(17, 2);
+
         if (dt < 10) {
             dt = '0' + dt;
             hrplace --;
@@ -71,7 +71,7 @@ class Stats extends Component {
         }else{
             return dt + '/' + month + '/' + year;
         }
-    
+
     }
 
     array = (falls) => {
@@ -81,12 +81,24 @@ class Stats extends Component {
         }
         return allFalls.map((fall, index) => {
             return <div id="fall">
-                <p>Fall {index + 1}: </p>
-                <p>Time: </p>
+                <p><b>Fall {index + 1} Time: </b></p>
                 <p>{this.displayTime(fall, "time")}</p>
             </div>
         })
     }
+
+    countFalls = () => {
+        let allFalls = [];
+
+        const stats = this.state.stats;
+        for (let i = 0; i < stats.length; i++){
+            if(stats[i].falls.length > 0){
+                allFalls.push(stats[i]);
+            }
+        }
+        return allFalls.length;
+    }
+
 
     dispUsers = () => {
 
@@ -96,27 +108,30 @@ class Stats extends Component {
         for (let i = 0; i < stats.length; i++){
             allStats.push(stats[i]);
         }
-        
+
         return allStats.map((stats, index) => {
             return <div id="statsCard" key={index}>
                 <h3>Ride {index+1}</h3>
-                <p><b>Date: </b></p>
-                <p>{this.displayTime(stats.time_start, "date")}</p>
-                <p><b>Start: </b></p>
-                <p>{this.displayTime(stats.time_start, "time")}</p>
-                <p><b>End: </b></p>
-                <p>{this.displayTime(stats.time_end, "time")}</p>
-                <p><b>Duration: </b></p>
-                <p>{this.duration(stats.time_start, stats.time_end)}</p>
-                {stats.falls.length > 0 && 
+                <p><b>Date: </b>{this.displayTime(stats.time_start, "date")}</p>
+
+                <p><b>Start: </b>{this.displayTime(stats.time_start, "time")}</p>
+
+                <p><b>End: </b>{this.displayTime(stats.time_end, "time")}</p>
+
+                <p><b>Duration: </b>{this.duration(stats.time_start, stats.time_end)}</p>
+
+                {stats.falls.length < 1 &&
+                <p>No falls</p>
+                }
+                {stats.falls.length > 0 &&
                 <><p><b>Falls: </b></p>
-                
+
                 <div id="allFalls">
                 {this.array(stats.falls)}
                 </div></>
                 }
             </div>
-        }) 
+        })
     }
 
     render() {
@@ -128,6 +143,11 @@ class Stats extends Component {
                     {this.dispUsers(this.state.stats)}
                     </div>
                 </section>
+            <h2>Stats</h2>
+            <section id="stats">
+                <p><b>Total number of trips: </b>{this.state.stats.length}</p>
+                <p><b>Total number of trips with falls: </b>{this.countFalls(this.state.stats)}</p>
+            </section>
             </>
             )
         }
