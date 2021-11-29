@@ -45,9 +45,9 @@ class Stats extends Component {
         //let min = date.getMinutes();
         //let sec = date.getSeconds();
 
-        let hr = sdate.substr(11, 2);
-        let min = sdate.substr(14, 2);
-        let sec = sdate.substr(17, 2);
+        let hrplace = 12;
+        let minplace = 15;
+        let secplace = 18;
 
         if (dt < 10) {
             dt = '0' + dt;
